@@ -1,0 +1,645 @@
+/*
+Theme Name: 	Hoops
+Theme URI: 		http://wenick-web.com/wp/themes/hoops
+Description: 	Theme for the 202nd class of Philadelphia's Central High School
+Version: 		1.0
+Author: 		Dean Wenick
+Author URI: 	http://wenick-web.com
+Tags: 			starkers, naked, clean, basic
+*/
+
+/*
+===========================
+CONTENTS:
+
+01 Sensible defaults
+02 Typography
+03 Media queries 
+===========================
+*/
+
+/* ---------------------------------------------------------------------------------------------------------- 
+01 Sensible defaults ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+/************************\
+       RESETS
+\************************/
+/* v1.0 | 20080212 */
+/* Original Source: http://meyerweb.com/eric/tools/css/reset/ */
+
+* {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/************************\
+       GLOBAL
+\************************/
+
+/*
+Type-A-File "Swissface" designed by Russ Maschmeyer, aka StrangeNative.
+http://www.strangenative.com
+@strangenative
+
+Creative Commons License by Attribution. 
+Feel free to take it, adapt it, & use it on both commercial and non-commercial projects.
+Though I'd like a smidgeon of credit, so just leave this bit in here. K?
+*/
+
+/*Pick Your Fonts*/
+body, aside h1, .sidenote h1, aside, .sidenote, blockquote{font-family:Arial, sans-serif;}
+h1, h2, h3, h4, h5, h6, .header, .subheader, .head, .subhead, .pullquote, .kicker{font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;}
+
+/*Size & Vertical Rhythm*/
+body{font-size:87.5%;font-size:14px;line-height:1.58em}
+
+/*HTML Standard Elements*/
+h1{font-size:2.285em;line-height:1.4em;margin:.85em 0 0em;} 
+h2{font-size:1.4em;padding-top:.1em;margin:2.05em 0 1.3em;}
+h3{font-size:1.125em;}
+h4{font-weight:bold;font-size:1em;}
+h3, h4, h5, h6, .kicker, .pullquote{font-weight:200;}
+h1{font-weight:bold;}
+small{display:block;font-size:.75em;margin:2.2em 0 -.2em;font-style:italic;}
+p, ul, ol, form{margin:1.58em 0;}
+ul{list-style-position:none}
+ol{list-style-position:none}
+blockquote{font-style:italic;}
+blockquote:before {content: "“";font-size:4em;text-indent:-.6em;margin-top:.15em;float:left;}
+cite{display:block;text-transform:uppercase;letter-spacing:1px;font-style:normal;font-weight:bold;font-size:smaller;margin-top:1.9em;}
+cite:before{content:"–";float:left;font-size:1.5em;text-indent:-1.3em;font-weight:bold;margin-top:-.1em;}
+pre{margin:1.5em;}
+dl{margin:1.45em 0;/*border-top:1px dotted #999;border-bottom:1px dotted #999;*/}
+dt{word-spacing:.1em;border-bottom:1px dotted #999;margin-top:1.7em;font-weight:bold;text-transform:uppercase;font-size:.9em;letter-spacing:1px;}
+dt:before{content:"⟩";font-size:1.25em;text-indent:-1em;float:left;font-style:none;font-weight:normal;}
+dd{font-style:italic;font-size:.9em;margin-bottom:1.65em;}
+abbr{text-transform:uppercase;font-size:.85em;}
+p {margin-bottom:0;hyphenate: auto;hyphenate-before:2;hyphenate-after:3;hyphenate-lines: 3;orphans:4}
+
+/*Compositional Elements*/
+.kicker{font-size:1.33em;line-height:1.8em;font-style:italic;margin:1.75em 0 -.25em;}
+.run-in{font-weight:bold;}
+.superscript{font-family:arial, sans-serif;vertical-align:super;font-size:75%;text-transform:lowercase;font-variant:small-caps;letter-spacing:.1em;line-height:0em;}
+.subscript{font-family:arial, sans-serif;vertical-align:sub;font-size:75%;text-transform:lowercase;font-variant:small-caps;letter-spacing:.1em;line-height:0em;}
+a.superscript, a.subscript{text-decoration:none;}
+aside, .sidenote{font-size:.83em;font-style:italic;margin-top:2em;}
+aside h1, .sidenote h1{text-transform:uppercase;margin:0;font-size:1em;line-height:1.9em;font-style:italic;font-weight:bold;}
+aside p, .sidenote p{line-height:1.9em;margin:0;}
+aside p + p, .sidenote p + p{margin:1.9em 0;}
+aside ul, aside ol, .sidenote ul, .sidenote ol{margin-top:1.9em;}
+.pullquote{margin:.45em .5em 0 0;padding-top:.45em;line-height:1.58em;display:block;float:left;font-size:2em;width:50%;/*border-bottom:1px solid black;*/border-top:.15em solid black;}
+.footnote{border-top:1px solid black;font-size:.75em;margin-top:3.7em;}
+.footnote li{margin:.6em 0 2.1em;}
+.caption{font-size:.8em;font-style:italic;margin:.6em 0 -.2em;}
+
+/*Tweaks*/
+.kern{letter-spacing:-.1em;}
+
+/* expand on swissface */
+
+.kicker {
+  padding-bottom: 1em;
+  border-bottom: 5px double #8a2435;
+  margin-bottom: 1em;
+}
+
+
+/***** /swissface ********/
+
+* {
+            -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      box-sizing: border-box
+}
+body {
+  background-image: url(img/bg-left.png), url(img/bg-body.png);
+  background-repeat: repeat-y, repeat;
+}
+body, body * {
+            margin: 0;
+            padding: 0;
+            font-size: large;
+            color: #444;
+            font-size: 18px;
+}
+
+#wrapper {
+      width: 90%;
+            max-width: 1000px;
+            margin:auto;
+}
+
+a img {
+            border: 0
+}
+
+article p {
+  margin-bottom: 1em
+}
+
+#news, #content {
+      width: 70%;
+      float: left;
+      margin: 1em 0;
+      min-height: 600px
+}
+
+#content {
+  padding-right: 2em
+}
+
+#news article, #content article {
+            width:90%;
+            margin: 0 auto;
+            line-height: 1.65;
+            font-size: 110%;
+}
+
+#content {
+  /*background-image: url(img/bg-logo-25.png);*/
+  background-position: 50% 10%;
+  background-repeat: no-repeat
+}
+
+#content > h1 {
+    font-size: 200%;
+    margin-bottom: 1.5em;
+    margin-left: 5%;
+}
+
+#content p {
+  margin-bottom: 1em
+}
+
+#logo-pin {
+  /*width: 75%;*/
+  margin: 0 auto
+}
+
+.article-header {
+    color: #8a2435;
+    font-family: 'Crimson Text';
+    font-size: 1.8em;
+    margin-bottom: 1em
+}
+
+#buddypress ul.item-list li div.action {
+    top: 4em;
+}
+
+#buddypress button, #buddypress a.button, #buddypress input[type="submit"], #buddypress input[type="button"], #buddypress input[type="reset"], #buddypress ul.button-nav li a, #buddypress div.generic-button a, #buddypress .comment-reply-link, a.bp-title-button {
+    background: none repeat scroll 0 0 #DEC20E;
+    border: 1px solid #CCCCCC;
+    color: #8a2435
+}
+
+#error * {
+  background-color: red;
+  color: white;
+  text-align: center;
+  font-size: x-large;
+}
+
+/********************************\
+ *Directory
+\********************************/
+
+table {
+    width: 90%;
+    margin-top: 10px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-left: auto;
+    padding: 0;
+    border: 0;
+    border-collapse: collapse;
+    color: #000;
+}
+
+table img {
+    border-radius: 0;
+}
+
+table tr th {
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 2px solid #000;
+    padding: 10px 0;
+}
+
+table tr {
+    border-bottom: 1px solid #000;
+}
+
+table tr td {
+    vertical-align: top;
+    padding: 10px;
+}
+
+.image {
+    text-align: center;
+    width: 200px;
+    padding: 0;
+    vertical-align: baseline;
+}
+.odd {
+    
+}
+.even {
+    
+}
+.number {
+    width: 142px;
+    text-align: right;
+    padding-right:30px;
+}
+
+/********************************\
+ *Gallery
+\********************************/
+
+.slideshowlink {
+  margin-bottom: .8em;
+}
+
+.ngg-galleryoverview {
+    border-bottom: 5px double #8A2435;
+    margin-bottom: 3em;
+    padding-bottom: 1em;
+    width: 100%;
+}
+
+/********************************\
+ *Footer
+\********************************/
+
+footer {
+            /*background-color: orange;*/
+            clear: both;
+            padding-top: 4em
+}
+
+footer p {
+      margin: 0 auto;
+            font-size: 85%
+}
+
+header h1 {
+      display: block;
+      color: #8a2435;
+      text-align: center;
+      font-weight: lighter;
+      margin-top: .5em
+}
+header h1 a {
+      margin-bottom: .6em;
+      font-family: 'Share', verdana, sans-serif;
+      font-size: 2em;
+      color: #8a2435;
+      text-align: center;
+      text-decoration: none
+}
+header h2 {
+  font-size: 75%;
+  font-family: verdana, sans-serif;
+  font-style: italic;
+  font-weight:lighter;
+  width: 90%
+}
+ h5.more {
+  font-size: .9em;
+  font-style: italic;
+  font-weight: 400;
+  text-align: right;
+  padding: .5em 2em 0 0;
+ }
+
+ footer h1 {
+    background-color: #DCBC3C;
+    color: #8A2435;
+    font-family: 'Crimson Text';
+    font-size: 2em;
+    outline: 1px solid #8A2435;
+    text-align: center;
+}
+
+header img {
+  padding: 1px;
+  border: 1px solid #666;
+}
+
+/************************\
+       NAVIGATION
+\************************/
+
+nav {
+  margin-top: 1em;    
+  color: #2a3d00;
+  font-family: cursive
+
+}
+nav li {
+  padding: .4em 0
+}
+nav a {
+  font-size: x-large;
+  display: block;
+  text-align: left;
+  padding: 0 0 .3em 0;
+  color: #2a3d00
+        }
+
+
+nav a:link {
+  color: inherit
+}
+
+nav a:link {
+  color: #2a3d00;
+  text-decoration: none
+}
+
+nav a:visited {
+  color: #2a3d00
+}
+
+nav a:hover, a:focus {
+  text-decoration: underline;
+  color: #8a2435
+}
+
+nav a:active {
+  color: #8a2435
+}
+ 
+.image-container img {
+  max-width: 100%
+}
+#nav_collapse {
+  display:block;
+  text-align:right;
+  width:100%;
+  padding:.625em;
+  color:#fff;
+  background:#9E1C35;
+  text-decoration:none;
+}
+#main_menu {
+  display: none;
+  margin-bottom: 3em
+}
+.simplemodal-login {
+  display: inline
+}
+
+/*****************************************\
+ buddyPress styles
+\*****************************************/  
+
+#members-dir-list img.avatar {
+-webkit-border-radius: 50%;
+-moz-border-radius: 50%;
+-ms-border-radius: 50%;
+-o-border-radius: 50%;
+border-radius: 50%;
+-webkit-box-shadow: 0 1px 0 #fff;
+-moz-box-shadow: 0 1px 0 #fff;
+box-shadow: 0 1px 0 #fff;
+}
+
+#members-dir-list a:hover img.avatar {
+-webkit-filter: grayscale(100%);
+-moz-filter: grayscale(100%);
+filter: grayscale(100%);
+-webkit-transition: -webkit-filter 0.2s ease-in-out;
+-moz-transition: -moz-filter 0.2s ease-in-out;
+transition: filter 0.2s ease-in-out;
+
+-webkit-border-radius: 45%;
+-moz-border-radius: 45%;
+-ms-border-radius: 45%;
+-o-border-radius: 45%;
+border-radius: 45%;
+
+}
+
+/*#buddypress #members-list li {
+overflow: auto;
+list-style: none;
+float: left;
+width: 30%;
+margin: 0 1.1em 1.5em 0;
+border: 0;
+}*/
+
+#buddypress #members-dir-list ul.item-list li div.item-title, #buddypress #members-dir-list  ul.item-list li h4, #buddypress #members-dir-list ul.item-list li div.item-meta
+ {
+width: 100%;
+text-align: center;
+}
+
+#buddypress #members-dir-list ul.item-list li div.item-title {
+font-size: 110%;
+}
+
+#buddypress #members-dir-list ul.item-list li div.item-meta {
+text-transform: uppercase;
+font-size: 80%;
+}
+
+#buddypress #members-dir-list ul.item-list li img.avatar {
+margin-bottom: 8px;
+}
+
+.item-title a {
+    color: #8a2435;
+    float: left;
+    font-family: 'Crimson Text';
+    font-size: 1.5em
+}
+
+#buddypress div.pagination {
+  width: auto;
+}
+
+/* style for directory list */
+#buddypress ul.item-list li {
+  padding: 0;
+}
+
+/*****************************************\
+ browser size styles
+\*****************************************/
+    
+@media (min-width: 850px) {
+     
+   body {
+     font-size: large
+   }
+
+   #wrapper {
+    padding: 1em 0 3em 0;
+   }
+   
+   header {
+     width: 30%;
+     float: right;
+   }
+   #nav_collapse {
+    display: none
+   }
+   #main_menu {
+  display: block !important
+  }
+}
+ 
+@media (max-width: 849px) {
+  #nav_collapse {
+    margin-top: .3em
+  }
+  
+  #wrapper {
+    width: 100%
+  }
+  header {
+    float: none;
+    clear: both;
+    width: 100%;
+  }
+  hgroup {   
+    position: relative;
+    overflow: hidden
+  }
+  header h1 {
+    float: none;
+    margin-bottom: 0;
+    margin-right: 5%
+  }
+  header h2 {
+    /*width: 50%;*/
+    padding:  1em 1.5em 0 .5em;/*
+    position: absolute;*/
+  }
+  header nav {
+    clear: both
+  }
+  #news, #content {
+    float: none;
+    width: 100%;
+    padding: .7em
+  }
+  header img {
+    display: none
+  }
+}
+ 
+@media (max-width: 480px) {
+    nav a {
+          padding: 0 5%
+    }
+    
+    body {
+          font-size: x-large
+    }
+    
+    div.image-container {
+    width: 90%;
+    /*display: inline;*/
+    float: none
+    }
+
+    form {
+          width: 90%;
+          float:none
+    }
+    
+    input, textarea {
+    width: 100%
+    }
+}
+    
+@media (max-width: 1175px) {
+  body {
+    background: url(img/bg-body.png) repeat
+  }
+}
+
+@media (min-width: 1400px) {
+  body {
+    background: url(img/bg-left.png) 5% 0 repeat-y, url(img/bg-body.png) repeat;
+  }
+}
+
+
+
+/* ---------------------------------------------------------------------------------------------------------- 
+03 Media queries (using a mobile-first approach) ------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+/* 400 and up */
+@media screen and (min-width:400px) {
+
+					{ /* Place your styles here for all widths greater than 400px */ }
+
+}
+
+/* Retina Display */
+@media screen and (-webkit-min-device-pixel-ratio:2) {
+
+					{ /* Place your styles here for all 'Retina' screens */ }
+
+}
